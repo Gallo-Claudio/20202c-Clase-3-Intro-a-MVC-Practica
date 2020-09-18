@@ -22,8 +22,8 @@ namespace Intro_MVC.Controllers
         public ActionResult Alta(Alimento alimento)
         {
             AlimentosServicios.Alta(alimento);
-            List<Alimento> Listado2 = AlimentosServicios.Listado();
-            return RedirectToAction("Todos", Listado2);
+            List<Alimento> Listado = AlimentosServicios.Listado();
+            return RedirectToAction("Todos", Listado);
         }
 
         public ActionResult Todos()
@@ -37,9 +37,11 @@ namespace Intro_MVC.Controllers
             return View();
         }
 
-        public ActionResult Borrar()
+        public ActionResult Borrar(int Id)
         {
-            return View();
+            AlimentosServicios.Borrar(Id);
+            List<Alimento> Listado = AlimentosServicios.Listado();
+            return RedirectToAction("Todos", Listado);
         }
     }
 }
