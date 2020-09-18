@@ -1,0 +1,39 @@
+﻿@using Entidades
+@model List<Alimento>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Todos</title>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <td>NOMBRE</td>
+                <td>PESO</td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            @foreach (Alimento alimento in Model)
+            {
+                <tr>
+                    <td>@alimento.Nombre</td>
+                    <td>@alimento.Peso</td>
+                    <td><a href="/Alimentos/Editar/@alimento.Id">Modificar</a></td>
+                    <td><a href="/Alimentos/Borrar/@alimento.Id">Borrar</a></td>
+                    
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</body>
+</html>
