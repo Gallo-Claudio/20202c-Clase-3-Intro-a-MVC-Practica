@@ -12,6 +12,17 @@
 </head>
 <body>
     <div> 
+        <form action="/Alimentos/Alta" method="post">
+            <input hidden name="id" value="@ViewBag.numeroOrden"/>
+            
+            <label>Nombre</label><br />
+            <input name="Nombre" value=""/><br /><br />
+            
+            <label>Peso</label><br />
+            <input name="Peso" value=""/><br /><br />
+            
+            <button type="submit">Ingresar</button>
+        </form>
     </div>
 </body>
 </html>
