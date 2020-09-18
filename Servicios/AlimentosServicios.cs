@@ -11,13 +11,14 @@ namespace Servicios
     {
         private static List<Alimento> ListaAlimento = new List<Alimento>();
 
-        public void Alta(string Nombre, int Peso)
+        public static void Alta(Alimento alimento)
         {
-            Alimento alimento = new Alimento();
-            alimento.Nombre = Nombre;
-            alimento.Peso = Peso;
-
             ListaAlimento.Add(alimento);
+        }
+
+        public static List<Alimento> Listado()
+        {
+            return ListaAlimento;
         }
 
         public static List<Alimento> Hardcodeo()
@@ -38,6 +39,20 @@ namespace Servicios
             ListaAlimento.Add(alimento3);
 
             return ListaAlimento;
+        }
+
+        public static int UltimoId()
+        {
+            if (ListaAlimento.Count == 0)
+            {
+                int proximoId = 1;
+                return proximoId;
+            }
+            else
+            {
+                int proximoId = ListaAlimento.Last().Id + 1;
+                return proximoId;
+            }
         }
     }
 }

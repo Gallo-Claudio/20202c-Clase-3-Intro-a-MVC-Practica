@@ -13,12 +13,22 @@ namespace Intro_MVC.Controllers
         // GET: Alimentos
         public ActionResult Alta()
         {
+            int numeroOrden = AlimentosServicios.UltimoId();
+            ViewBag.numeroOrden = numeroOrden;
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Alta(Alimento alimento)
+        {
+            AlimentosServicios.Alta(alimento);
+            List<Alimento> Listado2 = AlimentosServicios.Listado();
+            return RedirectToAction("Todos", Listado2);
         }
 
         public ActionResult Todos()
         {
-            List<Alimento> Listado = AlimentosServicios.Hardcodeo();
+            List<Alimento> Listado = AlimentosServicios.Listado();
             return View(Listado);
         }
 
