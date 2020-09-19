@@ -32,9 +32,16 @@ namespace Intro_MVC.Controllers
             return View(Listado);
         }
 
-        public ActionResult Editar()
+        public ActionResult Editar(int Id)
         {
-            return View();
+            Alimento resultado = AlimentosServicios.Buscar(Id);
+            return View(resultado);
+        }
+
+        public ActionResult Modificar(Alimento alimentoModificar)
+        {
+            AlimentosServicios.Editar(alimentoModificar);
+            return RedirectToAction("Todos");
         }
 
         public ActionResult Borrar(int Id)
